@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - edge
+  - pipe
+  - food
+  - banana
   layers:
   - Default
   - TransparentFX

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 70d3e2d36e3ac4a5c9f656e53a5f4561
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pipePreFab: {fileID: 2366067933624640770, guid: d6317d45133464d20ae6618fc82b8231, type: 3}
+  - foodPreFab: {fileID: 8187705504366875158, guid: 760e3a4285a954736970afc53f7cf367, type: 3}
+  - food1PreFab: {fileID: 1524579510873646316, guid: 8c0cfd7d0c1d44a6d838869c59181841, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
