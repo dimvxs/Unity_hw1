@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class SpawnerScript : MonoBehaviour
 {
+
+  // public static float difficulty = 0.5f;
+  public static float _difficulty = 0.5f;
+  public static float difficulty {
+    get => _difficulty;
+    set{
+      _difficulty = value;
+      foodTimeout = timeout + period * 0.5f;
+      food1Timeout = timeout + period * 0.5f;
+    }
+  }
     [SerializeField]
     private GameObject pipePreFab;
 
@@ -15,18 +26,30 @@ public class SpawnerScript : MonoBehaviour
 
     private float pipeOffsetMax = 2.0f;
     private float foodOffsetMax = 4.0f;
-    private float food1OffsetMax = 3.0f;
-    private float period = 3.0f;
-    private float timeout;
-    private float foodTimeout;
-    private float food1Timeout;
+    private float food1OffsetMax = 1.0f;
+    // private float period = 3.0f;
+    private static float period => 6.0f - 4.0f * difficulty;
+    private static float timeout;
+    private static float foodTimeout;
+    private static float food1Timeout;
+
+    public static int bananasCount;
+    public static int pipesCount;
+    public static int ladybugsCount;
+
+
+
     void Start()
     {
         timeout = 0f; // period
         foodTimeout = period * 1.5f; // |   |   |   |
                                      //       ^ period * 1.5
 
-        food1Timeout = period * 5.5f;
+        food1Timeout = period * 2.5f;
+
+        pipesCount = 0;
+        bananasCount = 0;
+        ladybugsCount = 0;
     }
 
     void Update()
@@ -37,6 +60,7 @@ public class SpawnerScript : MonoBehaviour
         {
             timeout = period;
             SpawnPipe();
+            pipesCount += 1;
         }
 
 
@@ -46,6 +70,7 @@ public class SpawnerScript : MonoBehaviour
         {
             foodTimeout = period;
             SpawnFood();
+            ladybugsCount += 1;
         }
 
           food1Timeout -= Time.deltaTime;
@@ -54,6 +79,7 @@ public class SpawnerScript : MonoBehaviour
         {
             food1Timeout = period;
             SpawnFood1();
+            bananasCount += 1;
         }
         
         
