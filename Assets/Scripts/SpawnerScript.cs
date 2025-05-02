@@ -36,6 +36,9 @@ public class SpawnerScript : MonoBehaviour
     public static int bananasCount;
     public static int pipesCount;
     public static int ladybugsCount;
+    public static float pipeDistance = 5.0f; // Значение по умолчанию
+    private Vector3 nextPipePosition = Vector3.zero;
+    
 
 
 
@@ -50,6 +53,8 @@ public class SpawnerScript : MonoBehaviour
         pipesCount = 0;
         bananasCount = 0;
         ladybugsCount = 0;
+        nextPipePosition = transform.position;
+
     }
 
     void Update()
@@ -89,8 +94,10 @@ public class SpawnerScript : MonoBehaviour
     {
        GameObject pipe = GameObject.Instantiate(pipePreFab);
        pipe.transform.position = transform.position + Random.Range(-pipeOffsetMax, +pipeOffsetMax) * Vector3.up;
+       nextPipePosition += new Vector3(pipeDistance, 0, 0); // каждый раз сдвигаем по X
+}
        
-    }
+    
 
     private void SpawnFood()
     {

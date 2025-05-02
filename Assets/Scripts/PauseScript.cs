@@ -16,6 +16,7 @@ public class PauseScript : MonoBehaviour
                 Time.timeScale = 0.0f;
              }
     }
+    
 
     void Update()
     {
@@ -44,4 +45,10 @@ public class PauseScript : MonoBehaviour
         {
              SpawnerScript.difficulty = value;
         }
+
+        public void OnPipeDistanceChanged(float value)
+         {
+               SpawnerScript.pipeDistance = value;
+         }
+
 }
